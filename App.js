@@ -16,7 +16,6 @@ import {
   StatusBar,
   Button,
 } from 'react-native';
-// import TextInput from './components/TextInput'
 import SplashScreen from 'react-native-splash-screen'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -24,6 +23,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Start from './view/Start'
 import Login from './view/Login'
 import SignUp from './view/SignUp';
+
+import Color from './common/color';
 
 const Stack = createStackNavigator();
 
@@ -38,16 +39,56 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name=" " component={Start} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen 
+          name=" " 
+          component={Start} 
+          options={{
+            headerShown: null,
+            cardStyle: {
+              backgroundColor: Color.main
+            }
+          }}
+        />
+        <Stack.Screen 
+          name="Login" 
+          component={Login} 
+          options={{
+            title: '로그인',
+            headerTintColor: Color.white,
+            headerStyle: {
+              backgroundColor: Color.main,
+              shadowColor: 'transparent', 
+            },
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+            cardStyle: {
+              backgroundColor: Color.main
+            }
+          }}
+        />
+        <Stack.Screen 
+          name="SignUp" 
+          component={SignUp} 
+          options={{
+            title: '회원가입',
+            headerTintColor: Color.white,
+            headerStyle: {
+              backgroundColor: Color.main,
+              shadowColor: 'transparent',
+            },
+            cardStyle: {
+              backgroundColor: Color.main
+            }
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
 };
 
+// const 
 // const styles = StyleSheet.create({
-  
 // });
 
 export default App;

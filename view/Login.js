@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {DefaultInput} from '../components/TextInput'
+import {DefaultButton} from '../components/DefaultButton'
 import {
     SafeAreaView,
     StyleSheet,
@@ -16,17 +17,17 @@ const Login = ({navigation}) => {
     return (
       <SafeAreaView style={{flex: 1, margin: 20}}>
         <DefaultInput 
-          placeholder={'ID'} 
+          placeholder={'User name'} 
           value={id}
           onChangeText={id => setID(id)}
         />  
         <DefaultInput 
-          placeholder={'PW'} 
+          placeholder={'Password'} 
           value={pw}
           onChangeText={pw => setPW(pw)}
         />  
-        <Button 
-          title="로그인"
+        <DefaultButton
+          text={'확인'}
           onPress={() => navigation.navigate('Login')}
         />
       </SafeAreaView>

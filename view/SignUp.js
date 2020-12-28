@@ -10,8 +10,27 @@ import {
   } from 'react-native';
 
 const SignUp = () => {
+    const [id, setID] = useState('');
+    const [pw, setPW] = useState('');
+
     return (
-        <Text>{"회원가입"}</Text>
+        <SafeAreaView style={{flex: 1, margin: 20}}>
+            <DefaultInput 
+                placeholder={'User name'} 
+                value={id}
+                onChangeText={id => setID(id)}
+            />  
+            <DefaultInput 
+                placeholder={'Password'} 
+                value={pw}
+                onChangeText={pw => setPW(pw)}
+            />
+            <DefaultInput 
+                placeholder={'Password Confirm'} 
+                value={pw}
+                onChangeText={pw => setPW(pw)}
+            />    
+        </SafeAreaView>
     )
 }
 

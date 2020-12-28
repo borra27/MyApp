@@ -3,14 +3,16 @@ import {
   StyleSheet,
   TextInput as Input,
 } from 'react-native';
+import Color from '../common/color';
 
 export const DefaultInput = ({style, ...props}) => {
-  // const [value, setValue] = useState('');
+  // const [value, setVlue] = useState('');
 
     return (
       <Input 
         {...props}
         style={[css.input, style]}
+        placeholderTextColor={Color.white}
         // onChangeText={value => setValue(value)} 
         // value={value}
       />
@@ -19,11 +21,13 @@ export const DefaultInput = ({style, ...props}) => {
 
 const css = StyleSheet.create({
   input: {
-    borderColor: 'black', 
-    borderWidth: StyleSheet.hairlineWidth, 
+    // borderColor: 'black', 
+    borderBottomColor: Color.white,
+    borderBottomWidth: StyleSheet.hairlineWidth, 
     margin: 10,
     padding: 10, 
     borderRadius: 5,
+    fontSize: 20,
   }
 })
 
