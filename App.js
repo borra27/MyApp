@@ -22,12 +22,26 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Start from './view/Start'
 import Login from './view/Login'
-import SignUp from './view/SignUp';
+import SignUp from './view/SignUp'
+import FindPassword from './view/FindPassword';
 
 import Color from './common/color';
 
 const Stack = createStackNavigator();
 
+const NavigationMainOptions = {
+  headerTintColor: Color.white,
+    headerStyle: {
+      backgroundColor: Color.main,
+      shadowColor: 'transparent', 
+    },
+    headerTitleStyle: {
+      fontSize: 20,
+    },
+    cardStyle: {
+      backgroundColor: Color.main
+    },
+};
 const App = () => {
 
   useEffect(() => {
@@ -54,17 +68,7 @@ const App = () => {
           component={Login} 
           options={{
             title: '로그인',
-            headerTintColor: Color.white,
-            headerStyle: {
-              backgroundColor: Color.main,
-              shadowColor: 'transparent', 
-            },
-            headerTitleStyle: {
-              fontSize: 20,
-            },
-            cardStyle: {
-              backgroundColor: Color.main
-            }
+            ...NavigationMainOptions,
           }}
         />
         <Stack.Screen 
@@ -72,14 +76,15 @@ const App = () => {
           component={SignUp} 
           options={{
             title: '회원가입',
-            headerTintColor: Color.white,
-            headerStyle: {
-              backgroundColor: Color.main,
-              shadowColor: 'transparent',
-            },
-            cardStyle: {
-              backgroundColor: Color.main
-            }
+            ...NavigationMainOptions,
+          }}
+        />
+        <Stack.Screen 
+          name="FindPassword" 
+          component={FindPassword} 
+          options={{
+            title: '비밀번호 찾기',
+            ...NavigationMainOptions,
           }}
         />
       </Stack.Navigator>
@@ -87,7 +92,6 @@ const App = () => {
   )
 };
 
-// const 
 // const styles = StyleSheet.create({
 // });
 

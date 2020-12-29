@@ -10,7 +10,7 @@ import {
     Button,
   } from 'react-native';
 
-const Login = ({navigation}) => {
+const FindPassword = ({navigation}) => {
     const [id, setID] = useState('');
     const [pw, setPW] = useState('');
   
@@ -20,20 +20,13 @@ const Login = ({navigation}) => {
           placeholder={'User name'} 
           value={id}
           onChangeText={id => setID(id)}
-          errorText={'올바르게 입력하세요.'}
-        />  
-        <DefaultInput 
-          placeholder={'Password'} 
-          value={pw}
-          onChangeText={pw => setPW(pw)}
-        />  
-        {/* <Text>{'비밀번호 찾기'}</Text> */}
+        />   
         <DefaultButton
-          text={'확인'}
-          onPress={() => navigation.navigate('Login')}
+          text={'비밀번호 찾기'}
+          onPress={() => navigation.navigate('Start')}
         />
       </SafeAreaView>
     );
   }
 
-  export default Login;
+  export default FindPassword;

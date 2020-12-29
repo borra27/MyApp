@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {DefaultInput} from '../components/TextInput'
+import {DefaultInput} from '../components/DefaultInput'
 import {
     SafeAreaView,
     StyleSheet,
