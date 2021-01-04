@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {DefaultInput} from '../components/DefaultInput'
+import {HookFormInput} from '../components/HookFormInput'
 import {DefaultButton} from '../components/DefaultButton'
 import {
     SafeAreaView,

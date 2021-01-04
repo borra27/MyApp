@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {
     Text,
     Pressable,
@@ -8,7 +8,14 @@ import Color from '../common/color';
 
 export const DefaultButton = ({text, onPress}) => (
     <Pressable 
-      style={css.pressible}
+      style={({pressed}) => [
+        {
+          backgroundColor: pressed
+            ? Color.lightGray
+            : Color.white
+        },
+        css.pressible
+      ]}
       onPress={onPress}
     >
       {() => (
@@ -22,7 +29,6 @@ export const DefaultButton = ({text, onPress}) => (
 
 const css = StyleSheet.create({
   pressible: {
-    backgroundColor: Color.white,
     borderRadius: 10,
     marginTop: 20,
     marginBottom: 20,

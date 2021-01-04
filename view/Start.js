@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import {DefaultInput} from '../components/DefaultInput'
+import React, { useState } from 'react'
+import {DefaultInput} from '../components/HookFormInput'
 import {DefaultButton} from '../components/DefaultButton'
 import {
     SafeAreaView,
-    StyleSheet,
-    ScrollView,
     View,
-    Button,
     Text,
-    Pressable,
   } from 'react-native';
 import Color from '../common/color';
 
