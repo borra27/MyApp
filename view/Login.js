@@ -36,10 +36,11 @@ const Login = ({navigation}) => {
         />  
         <TextButton
           text={"비밀번호 찾기"}
+          textStyle={{marginRight: 15}}
           color={Color.white}
           onPress={() => navigation.navigate('FindPassword')}
+          right
         />
-        {/* <Text>{'비밀번호 찾기'}</Text> */}
         <DefaultButton
           text={'확인'}
           onPress={handleSubmit(onSubmit)}
