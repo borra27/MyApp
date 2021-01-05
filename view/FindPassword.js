@@ -9,21 +9,27 @@ import {
     Text,
     Button,
   } from 'react-native';
+import { useForm } from 'react-hook-form';
+import Pattern from '../common/pattern';
 
 const FindPassword = ({navigation}) => {
-    const [id, setID] = useState('');
-    const [pw, setPW] = useState('');
+    const { control, handleSubmit, errors } = useForm({mode: 'onChange'});
+    const onSubmit = data => console.log({data});
   
     return (
       <SafeAreaView style={{flex: 1, margin: 20}}>
-        <DefaultInput 
-          placeholder={'User name'} 
-          value={id}
-          onChangeText={id => setID(id)}
+        <HookFormInput 
+          name={"username"}
+          placeholder={'User name'}         
+          control={control}
+          errors={errors}
+          errorText={'올바른 이메일을 입력하세요.'}
+          required
+          pattern={Pattern.email}
         />   
         <DefaultButton
           text={'비밀번호 찾기'}
-          onPress={() => navigation.navigate('Start')}
+          onPress={handleSubmit(onSubmit)}
         />
       </SafeAreaView>
     );

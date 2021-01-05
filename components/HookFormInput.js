@@ -15,7 +15,7 @@ export const HookFormInput = (props) => {
     required, maxLength, minLength, max, min, pattern, validate, valueAsNumber, valueAsDate, setValueAs,
     ...otherProps
   } = props;
-
+  
   return (
       <View>
         {control && <Controller
@@ -69,5 +69,3 @@ const css = StyleSheet.create({
     paddingLeft: 10, 
   },
 })
-
-// export default TextInput;
