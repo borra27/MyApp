@@ -1,12 +1,10 @@
 import React from 'react'
 import {
     Text,
-    Pressable,
-    TouchableHighlight,
     TouchableOpacity,
+    TouchableHighlight,
     StyleSheet,
   } from 'react-native';
-import Color from '../common/color';
 
 export const TextButton = props => {
   const {
@@ -38,7 +36,6 @@ export const TextButton = props => {
 
 const css = StyleSheet.create({
   text: {
-    // textAlign: 'center',
     paddingTop: 15,
     paddingBottom: 15,
   }
