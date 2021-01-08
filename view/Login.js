@@ -2,16 +2,34 @@ import React from 'react'
 import {HookFormInput} from '../components/HookFormInput'
 import {DefaultButton} from '../components/DefaultButton'
 import {
-    SafeAreaView,
-  } from 'react-native';
+  Alert,
+  SafeAreaView,
+} from 'react-native';
 import { useForm } from "react-hook-form";
 import Pattern from '../common/pattern';
 import { TextButton } from '../components/TextButton';
 import Color from '../common/color';
+import API, { STATUS } from '../server/api';
+import * as URL from '../server/url';
 
 const Login = ({navigation}) => {
     const { control, handleSubmit, errors } = useForm({mode: 'onChange'});
-    const onSubmit = data => console.log({data});
+    const onSubmit = async data => {
+      const {username: userid, password: userpw} = data;
+      
+      const {status, token} = await API.post(
+        URL.LOGIN, 
+        {userid, userpw}
+      )
+      
+      if (status === STATUS.SUCCESS) {
+        console.log({token});
+        Alert.alert("성공", "대시보드로 이동합니다.") 
+        // 대시보드로 이동
+      }
+      else
+        Alert.alert("알림", "계정을 잘못 입력하였습니다.") 
+    }
 
     return (
       <SafeAreaView style={{flex: 1, margin: 20}}>
@@ -23,6 +41,7 @@ const Login = ({navigation}) => {
           errorText={'올바른 이메일을 입력하세요.'}
           required
           pattern={Pattern.email}
+          autoCapitalize={'none'}
         />  
         <HookFormInput 
           name={"password"}
