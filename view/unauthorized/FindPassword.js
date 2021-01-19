@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {HookFormInput} from '../components/HookFormInput'
-import {DefaultButton} from '../components/DefaultButton'
+import {HookFormInput} from '../../components/HookFormInput'
+import {DefaultButton} from '../../components/DefaultButton'
 import {
     SafeAreaView,
     StyleSheet,
@@ -10,7 +10,7 @@ import {
     Button,
   } from 'react-native';
 import { useForm } from 'react-hook-form';
-import Pattern from '../common/pattern';
+import Pattern from '../../common/pattern';
 
 const FindPassword = ({navigation}) => {
     const { control, handleSubmit, errors } = useForm({mode: 'onChange'});
