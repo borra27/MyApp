@@ -1,30 +1,32 @@
 import React from 'react'
-import {HookFormInput} from '../components/HookFormInput'
-import {DefaultButton} from '../components/DefaultButton'
+import {HookFormInput} from '../../components/HookFormInput'
+import {DefaultButton} from '../../components/DefaultButton'
 import {
   Alert,
   SafeAreaView,
 } from 'react-native';
 import { useForm } from "react-hook-form";
-import Pattern from '../common/pattern';
-import { TextButton } from '../components/TextButton';
-import Color from '../common/color';
-import API, { STATUS } from '../server/api';
-import * as URL from '../server/url';
+import Pattern from '../../common/pattern';
+import { TextButton } from '../../components/TextButton';
+import Color from '../../common/color';
+import API, { STATUS } from '../../server/api';
+import * as URL from '../../server/url';
+import { storeToken } from '../../common/asyncStorage';
 
 const Login = ({navigation}) => {
     const { control, handleSubmit, errors } = useForm({mode: 'onChange'});
     const onSubmit = async data => {
       const {username: userid, password: userpw} = data;
       
-      const {status, token} = await API.post(
+      const {status, token, id} = await API.post(
         URL.LOGIN, 
         {userid, userpw}
       )
       
       if (status === STATUS.SUCCESS) {
-        console.log({token});
+        console.log({id});
         Alert.alert("성공", "대시보드로 이동합니다.") 
+        await storeToken(id)
         // 대시보드로 이동
       }
       else

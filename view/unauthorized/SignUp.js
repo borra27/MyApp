@@ -1,11 +1,11 @@
 import React from 'react'
-import {HookFormInput} from '../components/HookFormInput'
+import {HookFormInput} from '../../components/HookFormInput'
 import {
     SafeAreaView,
   } from 'react-native';
 import { useForm } from "react-hook-form";
-import Pattern from '../common/pattern';
-import { DefaultButton } from '../components/DefaultButton';
+import Pattern from '../../common/pattern';
+import { DefaultButton } from '../../components/DefaultButton';
 
 const SignUp = () => {
     const { control, handleSubmit, errors, getValues } = useForm({mode: 'onChange'});

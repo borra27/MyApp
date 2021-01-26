@@ -13,10 +13,10 @@ const headers = {
 const API = {
     post: (url, data) => axios.post(url, data, {headers})
       .then(function (response) {
-        const {data, status} = response;
+        const {data: {resultData}, status} = response;
 
-        console.log(data, status);
-        return {...data, status}
+        console.log(resultData, status);
+        return {...resultData, status}
       })
       .catch(function (errorResponse) {
         const {response: {data, status}} = errorResponse;

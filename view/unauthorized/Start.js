@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import {DefaultInput} from '../components/HookFormInput'
-import {DefaultButton} from '../components/DefaultButton'
+import {DefaultInput} from '../../components/HookFormInput'
+import {DefaultButton} from '../../components/DefaultButton'
 import {
     SafeAreaView,
     View,
     Text,
   } from 'react-native';
-import Color from '../common/color';
+import Color from '../../common/color';
 
 const Start = ({navigation}) => {
     const [id, setID] = useState('');
